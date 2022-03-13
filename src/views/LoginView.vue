@@ -5,21 +5,23 @@ import Logo from "@/components/Logo.vue";
 </script>
 
 <template>
-    <div class="login-container">
-        <Logo class="logo-container" />
-        <div class="form-container">
-            <h2 class="callToAction">Venha ser Pontue!</h2>
+    <div class="container">
+        <div class="login-container">
+            <Logo class="logo-container" />
+            <div class="form-container">
+                <h2 class="callToAction">Venha ser Pontue!</h2>
 
-            <LoginForm />
+                <LoginForm />
+            </div>
+            <Footer />
         </div>
-        <Footer />
     </div>
 </template>
 
 <style scoped>
 
 .logo-container {
-    margin: 2em 0;
+    padding: 2em 0;
 }
 .login-container {
     align-items: center;

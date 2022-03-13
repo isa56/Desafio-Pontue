@@ -7,11 +7,11 @@ import Footer from "@/components/Footer.vue";
 import Logo from "@/components/Logo.vue";
 
 export default {
-    name: 'ListTexts',
+    name: 'ListEssays',
     data() {
         return {
             userName: "Isadora",
-            texts: [
+            essays: [
                 "texto 1",
                 "texto 2",
                 "texto 3",
@@ -33,8 +33,8 @@ export default {
 <template>
     <div class="container">
         <div class="header-container">
-            <Logo class="logo-container" />
-            <h2>Olá, {{ userName }}!</h2>
+            <Logo style="text-align: end;" />
+            <h2 style="margin-left: 2em;">Olá, {{ userName }}!</h2>
         </div>
 
         <div class="add-btn-container">
@@ -47,8 +47,8 @@ export default {
         </div>
 
         <div class="list-container">
-            <ul class="list">
-                <li class="list-item" v-for="(text, index) in texts" :key="index">
+            <ul style="list-style-type: none;">
+                <li class="list-item" v-for="(text, index) in essays" :key="index">
                     <div class="list-item-container">
                         {{ text }}
                         <div class="icons-container">
@@ -77,14 +77,14 @@ export default {
 <style scoped>
 @import "@/assets/global.css";
 
-.header-container {
-    color: var(--logo-pink);
-    font-family: "Museo Sans", sans-serif;
+.container {
     margin: 1em;
 }
 
-.logo-container {
-    text-align: end;
+.header-container {
+    color: var(--logo-pink);
+    font-family: "Museo Sans", sans-serif;
+    margin: 0em;
 }
 
 .add-btn-container {
@@ -103,20 +103,16 @@ export default {
     font-size: 0.8em;
     font-weight: bold;
     justify-content: space-between;
-    padding: 0.3em;
-    margin: 0.4em;
-}
-
-.list {
-    list-style-type: none;
+    padding: 0.5em;
+    margin: 0.4em 1em;
 }
 
 .list-item {
     background-color: var(--primary-color);
     border-radius: 8px;
     color: var(--white-background);
-    margin: 0.4em;
-    padding: 0.8em;
+    margin: 0.8em;
+    padding: 1em;
     text-decoration: none;
 }
 
@@ -136,4 +132,5 @@ export default {
     color: var(--white-background);
     margin-right: 0.8em;
 }
+
 </style>

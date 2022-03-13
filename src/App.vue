@@ -1,21 +1,22 @@
 <script setup>
 import LoginView from "@/views/LoginView.vue"
-import ListTextsView from "@/views/ListTextsView.vue"
+import ListEssaysView from "@/views/ListEssaysView.vue"
+import ReadEssayView from "@/views/ReadEssayView.vue"
 </script>
 
 <template>
   <!-- <LoginView /> -->
-  <ListTextsView />
+  <ListEssaysView />
+  <!-- <ReadEssayView /> -->
 </template>
 
 <style>
 @import "@/assets/global.css";
 
-
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
   font-family: "Museo Sans", sans-serif;
   font-weight: normal;
+  margin: 0 0;
+  /* max-width: 1280px; */
 }
 </style>
