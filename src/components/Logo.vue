@@ -1,6 +1,9 @@
 <script>
 export default {
     name: 'Logo',
+    props: {
+        imageSize,
+    }
 }
 </script>
 
@@ -18,7 +21,7 @@ export default {
 }
 .logo {
     height: auto;
-    width: 20%;
+    width: 18%;
 }
 
 @media (max-width: 768px) {
