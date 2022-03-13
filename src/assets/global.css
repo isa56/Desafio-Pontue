@@ -1,0 +1,47 @@
+:root {
+    /* Base colors: */
+    --primary-color: #532E94;
+    --secondary-color: #403B44;
+    --terciary-purple: #7d068b;
+    --logo-purple: #482683;
+    --logo-pink: #d1037f;
+
+    /* Text colors: */
+    --text-color: #272727;
+    --text-accent: #CF007F;
+
+    /* Background colors: */
+    --white-background: #EFEEF4;
+    --gray-background: #B8B6C2;
+    --white-background-2: #DDDCE6;
+
+    /* Fonts: */
+    @font-face {
+        font-family: "Museo Sans";
+        src: local("Museo Sans"),
+        url(../fonts/Merienda/MuseoSans_500.otf) format("otf");
+    }
+
+
+
+    /* Definitions: */
+    background-color: var( --white-background-2 );
+    color: var(--text-color );
+    font-family: "Museo Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+
+}
+
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--text-accent);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

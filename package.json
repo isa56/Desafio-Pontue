@@ -1,0 +1,21 @@
+{
+  "name": "desafio-pontue",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5050"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "vee-validate": "^4.5.10",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.2",
+    "vite": "^2.8.4",
+    "vue-cli-plugin-vuetify": "~2.4.7"
+  }
+}
