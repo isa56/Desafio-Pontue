@@ -20,13 +20,13 @@ export default {
 }
 .logo {
     height: auto;
-    width: 18%;
+    width: 16%;
 }
 
 @media (max-width: 768px) {
     .logo {
         height: auto;
-        width: 60%;
+        width: 50%;
     }
 }
 </style>

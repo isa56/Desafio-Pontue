@@ -27,4 +27,12 @@ import Footer from "./components/Footer.vue";
 .logo-container {
   text-align: end;
 }
+
+@media (max-width: 768px) {
+  .logo-container {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}
 </style>

@@ -28,7 +28,7 @@ export default {
             <h2 class="form-title" v-if="essayFile === ''">Adicione uma nova redação</h2>
             <h2 class="form-title" v-else>Altere a redação</h2>
 
-            <div class="current-essay-container"  v-if="essayFile !== ''">
+            <div class="current-essay-container" v-if="essayFile !== ''">
                 <img class="current-essay-file" :src="essayFile" alt="Sua redação atual." />
             </div>
 
@@ -41,7 +41,6 @@ export default {
                 <button class="submit-button" type="submit">Enviar redação</button>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -49,7 +48,6 @@ export default {
 .container {
     margin: 0 3em;
 }
-
 
 .form-container {
     align-items: center;
@@ -66,18 +64,29 @@ export default {
 }
 
 .current-essay-container {
-    text-align: center;
     margin: 2em;
+    text-align: center;
 }
 
 @media (min-width: 769px) {
     .current-essay-file {
-        width: 800px;
+        border-radius: 8px;
+        width: 100%;
     }
 }
 
 @media (max-width: 768px) {
-    .essay {
+    .container {
+        margin: 0;
+    }
+
+    .form-container {
+        margin: 1em 0;
+        width: 90%;
+    }
+    .current-essay-file {
+        border-radius: 8px;
+        margin: 1em 0;
         width: 100%;
     }
 }
