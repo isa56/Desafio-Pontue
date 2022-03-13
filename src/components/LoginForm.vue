@@ -1,14 +1,14 @@
 <script setup>
-import TextField from "@/components/TextField.vue";
+import InputField from "@/components/InputField.vue";
 </script>
 
 <template>
     <div class="loginForm">
-        <TextField type="email" label="E-Mail" />
+        <InputField type="email" label="E-Mail" />
         <br />
-        <TextField type="password" label="Senha" />
+        <InputField type="password" label="Senha" />
         <br />
-        <button class="loginButton">Logar</button>
+        <button class="login-button">Logar</button>
     </div>
 </template>
 
@@ -18,13 +18,14 @@ import TextField from "@/components/TextField.vue";
 .loginForm {
     justify-content: center;
 }
-.loginButton {
+
+.login-button {
     background: var(--logo-pink);
     border: none;
     border-radius: 8px;
     color: var(--white-background);
     font-family: "Museo Sans", sans-serif;
-    font-size: 1em;;
+    font-size: 1em;
     margin: 0.6em;
     padding: 0.6em;
     width: 50%;
@@ -34,5 +35,4 @@ import TextField from "@/components/TextField.vue";
     background: var(--white-background);
     color: var(--logo-pink);
 }
-
 </style>

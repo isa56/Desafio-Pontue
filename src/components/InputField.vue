@@ -1,6 +1,6 @@
 <script >
 export default {
-    name: 'LoginField',
+    name: 'InputField',
     props: ['label', 'type'],
 }
 </script>
@@ -8,7 +8,7 @@ export default {
 <template>
     <label class="input-label">{{ label }}:</label>
     <br />
-    <input class="login-field" v-bind:type="type" v-bind:placeholder="label" />
+    <input class="input-field" v-bind:type="type" v-bind:placeholder="label" />
 </template>
 
 <style scoped>
@@ -20,13 +20,12 @@ export default {
     font-size: 0.8em;
 }
 
-.login-field {
+.input-field {
     border: none;
     border-radius: 8px;
     margin: 0.6em;
     padding: 0.8em;
     width: 50%;
 }
-
 
 </style>
