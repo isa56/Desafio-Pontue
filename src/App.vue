@@ -6,8 +6,8 @@ import ReadEssayView from "@/views/ReadEssayView.vue"
 
 <template>
   <!-- <LoginView /> -->
-  <ListEssaysView />
-  <!-- <ReadEssayView /> -->
+  <!-- <ListEssaysView /> -->
+  <ReadEssayView />
 </template>
 
 <style>
@@ -17,6 +17,5 @@ import ReadEssayView from "@/views/ReadEssayView.vue"
   font-family: "Museo Sans", sans-serif;
   font-weight: normal;
   margin: 0 0;
-  /* max-width: 1280px; */
 }
 </style>

@@ -1,12 +1,12 @@
 <script setup>
-import LoginField from "@/components/LoginField.vue";
+import TextField from "@/components/TextField.vue";
 </script>
 
 <template>
     <div class="loginForm">
-        <LoginField type="email" label="E-Mail" />
+        <TextField type="email" label="E-Mail" />
         <br />
-        <LoginField type="password" label="Senha" />
+        <TextField type="password" label="Senha" />
         <br />
         <button class="loginButton">Logar</button>
     </div>
