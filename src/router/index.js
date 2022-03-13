@@ -17,6 +17,11 @@ const router = createRouter({
       name: 'redacao',
       component: () => import('../views/ReadEssayView.vue')
     },
+    {
+      path: '/formulario-redacao',
+      name: 'formulario-redacao',
+      component: () => import('../views/EssayFormView.vue')
+    },
 
   ]
 })

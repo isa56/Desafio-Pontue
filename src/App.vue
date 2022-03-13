@@ -2,14 +2,14 @@
 import LoginView from "@/views/LoginView.vue"
 import ListEssaysView from "@/views/ListEssaysView.vue"
 import ReadEssayView from "@/views/ReadEssayView.vue"
-import EssayForm from "./views/EssayForm.vue";
+import EssayForm from "./views/EssayFormView.vue";
 </script>
 
 <template>
-  <!-- <LoginView /> -->
+  <LoginView />
   <!-- <ListEssaysView /> -->
   <!-- <ReadEssayView /> -->
-  <EssayForm />
+  <!-- <EssayForm /> -->
 </template>
 
 <style>
