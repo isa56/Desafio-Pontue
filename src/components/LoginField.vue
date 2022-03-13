@@ -22,7 +22,7 @@ export default {
 
 .login-field {
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     margin: 0.6em;
     padding: 0.8em;
     width: 50%;

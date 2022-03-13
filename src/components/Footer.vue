@@ -15,7 +15,7 @@
 @import "@/assets/global.css";
 
 .footer {
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--text-color);
     font-family: "Museo Sans", sans-serif;
     font-size: 0.8em;

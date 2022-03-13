@@ -21,7 +21,7 @@ import LoginField from "@/components/LoginField.vue";
 .loginButton {
     background: var(--logo-pink);
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--white-background);
     font-family: "Museo Sans", sans-serif;
     font-size: 1em;;

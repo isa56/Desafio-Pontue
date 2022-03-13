@@ -30,7 +30,7 @@ import Logo from "@/components/Logo.vue";
 
 .form-container {
     background: var(--primary-color);
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--white-background);
     display: block;
     margin: 0 16em;
@@ -51,7 +51,7 @@ import Logo from "@/components/Logo.vue";
 
     .form-container {
         background: var(--primary-color);
-        border-radius: 6px;
+        border-radius: 8px;
         color: var(--white-background);
         margin: 0;
         padding: 0.8em;

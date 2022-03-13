@@ -11,8 +11,6 @@ export default {
     data() {
         return {
             userName: "Isadora",
-            userType: "admin",
-
             texts: [
                 "texto 1",
                 "texto 2",
@@ -40,7 +38,7 @@ export default {
         </div>
 
         <div class="add-btn-container">
-            <a style="text-decoration: none;" href="">
+            <a style="text-decoration: none;" href>
                 <div class="add-button">
                     <p>Adicionar Redação</p>
                     <vue-feather class="icon" type="plus"></vue-feather>
@@ -54,17 +52,16 @@ export default {
                     <div class="list-item-container">
                         {{ text }}
                         <div class="icons-container">
-                            <a href="">
-                                <vue-feather v-if="userType === 'admin'" class="icon" type="edit-2"></vue-feather>
+                            <a href>
+                                <vue-feather class="icon" type="edit-2"></vue-feather>
                             </a>
-                            <a href="">
+                            <a href>
                                 <vue-feather
-                                    v-if="userType === 'admin'"
                                     class="icon"
                                     type="trash-2"
                                 ></vue-feather>
                             </a>
-                            <a href="">
+                            <a href>
                                 <vue-feather class="icon" type="eye"></vue-feather>
                             </a>
                         </div>
@@ -99,7 +96,7 @@ export default {
 .add-button {
     align-items: center;
     background-color: var(--logo-pink);
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--white-background);
     display: flex;
     font-family: "Museo Sans", sans-serif;
@@ -116,7 +113,7 @@ export default {
 
 .list-item {
     background-color: var(--primary-color);
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--white-background);
     margin: 0.4em;
     padding: 0.8em;
