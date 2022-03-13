@@ -40,8 +40,6 @@ export default {
                 <img class="essay" v-bind:src="essayUrl" alt="Imagem com a sua redação." />
             </div>
         </div>
-
-        <Footer />
     </div>
 </template>
 
@@ -52,9 +50,6 @@ export default {
     margin: 0 3em;
 }
 
-.logo-container {
-    text-align: end;
-}
 
 .essay-container {
     margin-top: 3em;

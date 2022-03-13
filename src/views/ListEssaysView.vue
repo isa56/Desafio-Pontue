@@ -33,17 +33,17 @@ export default {
 <template>
     <div class="container">
         <div class="header-container">
-            <Logo style="text-align: end;" />
+            <Logo />
             <h2 style="margin-left: 2em;">Olá, {{ userName }}!</h2>
         </div>
 
         <div class="add-btn-container">
-            <a style="text-decoration: none;" href>
+            <router-link style="text-decoration: none;" to="/formulario-redacao">
                 <div class="add-button">
                     <p>Adicionar Redação</p>
                     <vue-feather class="icon" type="plus"></vue-feather>
                 </div>
-            </a>
+            </router-link>
         </div>
 
         <div class="list-container">
@@ -52,25 +52,20 @@ export default {
                     <div class="list-item-container">
                         {{ text }}
                         <div class="icons-container">
-                            <a href>
+                            <router-link to="/formulario-redacao?">
                                 <vue-feather class="icon" type="edit-2"></vue-feather>
-                            </a>
-                            <a href>
-                                <vue-feather
-                                    class="icon"
-                                    type="trash-2"
-                                ></vue-feather>
-                            </a>
-                            <a href>
+                            </router-link>
+                            <router-link to="/excluir-redacao?">
+                                <vue-feather class="icon" type="trash-2"></vue-feather>
+                            </router-link>
+                            <router-link to="/redacao">
                                 <vue-feather class="icon" type="eye"></vue-feather>
-                            </a>
+                            </router-link>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-
-        <Footer />
     </div>
 </template>
 
@@ -132,5 +127,4 @@ export default {
     color: var(--white-background);
     margin-right: 0.8em;
 }
-
 </style>

@@ -1,6 +1,5 @@
 <script setup>
 import LoginForm from "@/components/LoginForm.vue";
-import Footer from "@/components/Footer.vue";
 import Logo from "@/components/Logo.vue";
 </script>
 
@@ -13,16 +12,17 @@ import Logo from "@/components/Logo.vue";
 
                 <LoginForm />
             </div>
-            <Footer />
         </div>
     </div>
 </template>
 
 <style scoped>
-
 .logo-container {
+    margin: auto;
     padding: 2em 0;
+    text-align: center;
 }
+
 .login-container {
     align-items: center;
     justify-content: center;

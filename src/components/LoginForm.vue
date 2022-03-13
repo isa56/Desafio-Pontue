@@ -1,5 +1,4 @@
 <script setup>
-import InputField from "@/components/InputField.vue";
 </script>
 
 <script>
@@ -10,26 +9,51 @@ export default {
             emailTxt: '',
             passwordTxt: '',
         }
+    },
+    methods: {
+        login(event) {
+            event.preventDefault()
+            console.log(emailTxt)
+            console.log(passwordTxt)
+        }
     }
 }
 
 </script>
 
 <template>
-    <div class="loginForm">
-        <InputField type="email" label="E-Mail" />
+    <div class="login-form">
+        <label class="input-label" for="email">E-Mail:</label>
         <br />
-        <InputField type="password" label="Senha" />
+        <input class="input-field" id="email" type="email" placeholder="E-Mail" v-model="emailTxt" />
         <br />
-        <button class="login-button" >Logar</button>
+        <label class="input-label" for="password">Senha:</label>
+        <br />
+        <input class="input-field" id="password" type="password" placeholder="Senha" v-model="passwordTxt" />
+
+        <button class="login-button" @click="login($event)">Logar</button>
     </div>
 </template>
 
 <style scoped>
 @import "@/assets/global.css";
 
-.loginForm {
+.login-form {
     justify-content: center;
+}
+
+.input-label {
+    text-align: left;
+    font-family: "Museo Sans", sans-serif;
+    font-size: 0.8em;
+}
+
+.input-field {
+    border: none;
+    border-radius: 8px;
+    margin: 0.6em;
+    padding: 0.8em;
+    width: 50%;
 }
 
 .login-button {
@@ -48,4 +72,5 @@ export default {
     background: var(--white-background);
     color: var(--logo-pink);
 }
+
 </style>

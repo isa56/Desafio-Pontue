@@ -3,17 +3,16 @@
 import Logo from "../components/Logo.vue"
 import Footer from "../components/Footer.vue";
 import GoBackIcon from "../components/GoBackIcon.vue";
-import InputField from "../components/InputField.vue";
 
 export default {
     name: "EssayForm",
     data() {
         return {
             essayId: "123",
-            essayFile: "https://images5.content-hci.com/commimg/myhotcourses/blog-inline/myhc_60529.jpg"
+            essayFile: "https://portalradar.com.br/wp-content/uploads/2019/08/pride.jpg"
         };
     },
-    components: { Logo, Footer, GoBackIcon, InputField }
+    components: { Logo, Footer, GoBackIcon }
 }
 </script>
 
@@ -26,7 +25,7 @@ export default {
         </div>
 
         <div class="form-container">
-            <h2 class="form-title" v-if="essayId === ''">Adicione uma nova redação</h2>
+            <h2 class="form-title" v-if="essayFile === ''">Adicione uma nova redação</h2>
             <h2 class="form-title" v-else>Altere a redação</h2>
 
             <div class="current-essay-container"  v-if="essayFile !== ''">
@@ -43,7 +42,6 @@ export default {
             </div>
         </div>
 
-        <Footer />
     </div>
 </template>
 
@@ -52,9 +50,6 @@ export default {
     margin: 0 3em;
 }
 
-.logo-container {
-    text-align: end;
-}
 
 .form-container {
     align-items: center;

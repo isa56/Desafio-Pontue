@@ -7,7 +7,9 @@ export default {
 
 <template>
     <div class="logo-container">
-        <img class="logo" src="../assets/logo.svg" alt="Logo Pontue" />
+        <router-link to="/">
+            <img class="logo" src="../assets/logo.svg" alt="Logo Pontue" />
+        </router-link>
     </div>
 </template>
 

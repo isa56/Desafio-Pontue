@@ -17,11 +17,11 @@ export default {
 
 
 <template>
-    <a href>
+    <router-link to="/redacoes">
         <div class="icon-container">
             <vue-feather class="icon" type="arrow-left"></vue-feather>
         </div>
-    </a>
+    </router-link>
 </template>
 
 <style scoped>

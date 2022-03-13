@@ -3,13 +3,16 @@ import LoginView from "@/views/LoginView.vue"
 import ListEssaysView from "@/views/ListEssaysView.vue"
 import ReadEssayView from "@/views/ReadEssayView.vue"
 import EssayForm from "./views/EssayFormView.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <LoginView />
-  <!-- <ListEssaysView /> -->
-  <!-- <ReadEssayView /> -->
-  <!-- <EssayForm /> -->
+  <router-view />
+  <Footer />
+  <!-- <LoginView />
+  <ListEssaysView />
+  <ReadEssayView />
+  <EssayForm />-->
 </template>
 
 <style>
@@ -19,5 +22,9 @@ import EssayForm from "./views/EssayFormView.vue";
   font-family: "Museo Sans", sans-serif;
   font-weight: normal;
   margin: 0 0;
+}
+
+.logo-container {
+  text-align: end;
 }
 </style>
