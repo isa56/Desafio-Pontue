@@ -2,13 +2,26 @@
 import InputField from "@/components/InputField.vue";
 </script>
 
+<script>
+export default {
+    name: 'LoginForm',
+    data() {
+        return {
+            emailTxt: '',
+            passwordTxt: '',
+        }
+    }
+}
+
+</script>
+
 <template>
     <div class="loginForm">
         <InputField type="email" label="E-Mail" />
         <br />
         <InputField type="password" label="Senha" />
         <br />
-        <button class="login-button">Logar</button>
+        <button class="login-button" >Logar</button>
     </div>
 </template>
 

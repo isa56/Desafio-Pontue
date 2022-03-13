@@ -1,7 +1,17 @@
 <script >
 export default {
     name: 'InputField',
-    props: ['label', 'type'],
+    props: ['label', 'type', 'data'],
+    data() {
+        return {
+            newData: ''
+        }
+    },
+    methods: { 
+        updateData() {
+            this.data = newData;
+        }
+    }
 }
 </script>
 
