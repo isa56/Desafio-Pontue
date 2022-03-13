@@ -31,7 +31,7 @@ import InputField from "@/components/InputField.vue";
     width: 50%;
 }
 
-.loginButton:hover {
+.login-button:hover {
     background: var(--white-background);
     color: var(--logo-pink);
 }
