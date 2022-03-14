@@ -18,13 +18,32 @@ export default {
         VueFeather
     },
 
+    emits: ['getItems'],
+
     methods: {
 
         editEssay(essay) {
 
+            const id = essay.id;
+            axios.get(`${server}/redacao/${id}`)
+                .then(() => {
+                    this.$router.push({ name: 'formulario-redacao', params: { id } });
+                })
+                .catch(error => console.log(error));
+
+
         },
 
         deleteEssay(essay) {
+
+            const id = essay.id;
+
+            axios.delete(`${server}/redacao/${id}/delete`)
+                .then((response) => { 
+                    console.log("Deleção feita com sucesso!\n", response) 
+                    this.$emit('getItems')
+                })
+                .catch(error => console.log(error));
 
         },
 
@@ -33,7 +52,7 @@ export default {
             const id = essay.id;
             axios.get(`${server}/redacao/${id}`)
                 .then(() => {
-                    this.$router.push({ name: 'redacao', params: {id} });
+                    this.$router.push({ name: 'redacao', params: { id } });
                 })
                 .catch(error => console.log(error));
 
@@ -46,8 +65,8 @@ export default {
 
 
 <template>
-    <div class="list-item-container">
-        {{ essay.numero }}
+    <div class="list-item-container" :key="essay.id">
+        {{ essay.created_at }}
         <div class="icons-container">
             <div class="icon-container" @click="editEssay(essay)">
                 <vue-feather class="icon" type="edit-2"></vue-feather>

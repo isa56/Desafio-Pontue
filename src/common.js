@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const server = 'https://desafio.pontue.com.br';

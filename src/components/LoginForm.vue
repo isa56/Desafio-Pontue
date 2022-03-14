@@ -98,4 +98,6 @@ export default {
     color: var(--logo-pink);
     cursor: pointer;
 }
+
+
 </style>

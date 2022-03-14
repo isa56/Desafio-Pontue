@@ -45,7 +45,7 @@ import Logo from "@/components/Logo.vue";
     margin-bottom: 1em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .logo {
         height: auto;
         width: 60%;
@@ -56,7 +56,7 @@ import Logo from "@/components/Logo.vue";
         border-radius: 8px;
         color: var(--white-background);
         margin: 0;
-        padding: 0.8em;
+        padding: 0.4em;
         width: auto;
     }
 }

@@ -25,17 +25,22 @@ export default {
             this.$router.push('/')
         },
 
+        getItems() {
+            const aluno_id = localStorage.getItem('aluno_id')
+
+            axios.get(`${server}/index/aluno/${aluno_id}`, {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            })
+                .then((response) => {
+                    this.essays = response.data.data
+                })
+                .catch((error) => console.log(error))
+        }
+
     },
 
     mounted() {
-        const aluno_id = localStorage.getItem('aluno_id')
-
-        axios.get(`${server}/index/aluno/${aluno_id}`)
-            .then((response) => {
-                this.essays = response.data.data
-            })
-            .catch((error) => console.log(error))
-
+        this.getItems();
     }
 
 }
@@ -68,7 +73,7 @@ export default {
 
             <ul style="list-style-type: none;">
                 <li class="list-item" v-for="(essay, index) in essays" :key="index">
-                    <EssayItem :essay="essay" />
+                    <EssayItem @get-items="getItems" :essay="essay" />
                 </li>
             </ul>
         </div>
