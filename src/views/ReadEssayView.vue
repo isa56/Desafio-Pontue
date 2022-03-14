@@ -65,6 +65,7 @@ export default {
     </div>
 </template>
 
+
 <style scoped>
 @import "@/assets/global.css";
 
