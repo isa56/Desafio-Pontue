@@ -35,7 +35,6 @@ export default {
     justify-content: center;
     width: 40px;
 }
-
 .icon-container:hover {
     background-color: var(--logo-purple);
 }

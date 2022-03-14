@@ -35,4 +35,10 @@ import Footer from "./components/Footer.vue";
     text-align: center;
   }
 }
+
+.icon {
+    color: var(--white-background);
+    margin-right: 0;
+}
+
 </style>

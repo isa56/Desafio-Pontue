@@ -25,6 +25,12 @@ export default {
         Logo,
         Footer,
         VueFeather,
+    },
+    methods: {
+        logout() {
+            localStorage.removeItem('token')
+            this.$router.push('/')
+        }
     }
 
 }
@@ -34,19 +40,27 @@ export default {
     <div class="container">
         <div class="header-container">
             <Logo />
+
+            <div class="btn-container" style="justify-content: start; margin-left: 2em;">
+                <div class="add-button" @click="logout">
+                    <p>Sair da conta</p>
+                    <vue-feather style="margin-left: 5px;" class="icon" type="log-out"></vue-feather>
+                </div>
+            </div>
+
             <h2 style="margin-left: 2em;">Olá, {{ userName }}!</h2>
         </div>
 
-        <div class="add-btn-container">
-            <router-link style="text-decoration: none;" to="/formulario-redacao">
-                <div class="add-button">
-                    <p>Adicionar Redação</p>
-                    <vue-feather class="icon" type="plus"></vue-feather>
-                </div>
-            </router-link>
-        </div>
-
         <div class="list-container">
+            <div class="btn-container">
+                <router-link style="text-decoration: none;" to="/formulario-redacao">
+                    <div class="add-button">
+                        <p>Adicionar Redação</p>
+                        <vue-feather class="icon" type="plus"></vue-feather>
+                    </div>
+                </router-link>
+            </div>
+
             <ul style="list-style-type: none;">
                 <li class="list-item" v-for="(text, index) in essays" :key="index">
                     <div class="list-item-container">
@@ -82,7 +96,7 @@ export default {
     margin: 0em;
 }
 
-.add-btn-container {
+.btn-container {
     display: flex;
     justify-content: end;
     width: auto;
@@ -100,6 +114,19 @@ export default {
     justify-content: space-between;
     padding: 0.5em;
     margin: 0.4em 1em;
+}
+
+.add-button:hover {
+    background-color: var(--logo-purple);
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 0.8em;
+}
+
+.icon:hover {
+    color: var(--logo-pink);
 }
 
 .list-item {
@@ -121,10 +148,5 @@ export default {
 .icons-container {
     display: inline;
     text-align: end;
-}
-
-.icon {
-    color: var(--white-background);
-    margin-right: 0.8em;
 }
 </style>

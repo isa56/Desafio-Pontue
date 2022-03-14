@@ -8,12 +8,12 @@ const router = createRouter({
       component: () => import('../views/LoginView.vue')
     },
     {
-      path: '/redacoes',
+      path: '/redacoes/',
       name: 'redacoes',
       component: () => import('../views/ListEssaysView.vue')
     },
     {
-      path: '/redacao',
+      path: '/redacao/:id',
       name: 'redacao',
       component: () => import('../views/ReadEssayView.vue')
     },

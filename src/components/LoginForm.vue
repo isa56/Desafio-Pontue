@@ -1,21 +1,37 @@
-<script setup>
-</script>
-
 <script>
+import axios from 'axios'
+
+import { server } from "@/common"
+
+
 export default {
     name: 'LoginForm',
     data() {
         return {
-            emailTxt: '',
-            passwordTxt: '',
+            email: '',
+            password: '',
         }
     },
     methods: {
-        login(event) {
-            event.preventDefault()
-            console.log(emailTxt)
-            console.log(passwordTxt)
+
+        async login(event) {
+
+            axios.post(`${server}/auth/login`, {
+                email: this.email,
+                password: this.password
+            })
+                .then(response => {
+                    console.log(response)
+                    localStorage.setItem('token', response.data.access_token)
+
+                    this.$router.push({ name: 'redacoes' })
+
+                })
+                .catch(erro => console.log(erro))
+
         }
+
+
     }
 }
 
@@ -23,15 +39,24 @@ export default {
 
 <template>
     <div class="login-form">
-        <label class="input-label" for="email">E-Mail:</label>
-        <br />
-        <input class="input-field" id="email" type="email" placeholder="E-Mail" v-model="emailTxt" />
-        <br />
-        <label class="input-label" for="password">Senha:</label>
-        <br />
-        <input class="input-field" id="password" type="password" placeholder="Senha" v-model="passwordTxt" />
+        <form @submit.prevent="login">
+            <label class="input-label" for="email">E-Mail:</label>
+            <br />
+            <input class="input-field" id="email" type="email" placeholder="E-Mail" v-model="email" />
+            <br />
 
-        <button class="login-button" @click="login($event)">Logar</button>
+            <label class="input-label" for="password">Senha:</label>
+            <br />
+            <input
+                class="input-field"
+                id="password"
+                type="password"
+                placeholder="Senha"
+                v-model="password"
+            />
+
+            <button class="login-button" type="submit">Logar</button>
+        </form>
     </div>
 </template>
 
@@ -71,6 +96,6 @@ export default {
 .login-button:hover {
     background: var(--white-background);
     color: var(--logo-pink);
+    cursor: pointer;
 }
-
 </style>
