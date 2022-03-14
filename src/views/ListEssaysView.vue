@@ -1,24 +1,17 @@
 <script>
 
 import VueFeather from 'vue-feather';
-
+import axios from 'axios';
 
 import Footer from "@/components/Footer.vue";
 import Logo from "@/components/Logo.vue";
+import { server } from '@/common';
 
 export default {
     name: 'ListEssays',
     data() {
         return {
-            userName: "Isadora",
-            essays: [
-                "texto 1",
-                "texto 2",
-                "texto 3",
-                "texto 4",
-                "texto 5",
-                "texto 6",
-            ]
+            essays: []
         }
     },
     components: {
@@ -31,6 +24,18 @@ export default {
             localStorage.removeItem('token')
             this.$router.push('/')
         }
+    },
+    mounted() {
+        const aluno_id = localStorage.getItem('aluno_id')
+
+        axios.get(`${server}/index/aluno/${aluno_id}`)
+            .then((response) => {
+                console.log(response.data.data)
+                this.essays = response.data.data
+                console.log(this.essays)
+            })
+            .catch((error) => console.log(error))
+
     }
 
 }
@@ -48,7 +53,7 @@ export default {
                 </div>
             </div>
 
-            <h2 style="margin-left: 2em;">Olá, {{ userName }}!</h2>
+            <h2 style="margin-left: 2em;">Olá, aluno!</h2>
         </div>
 
         <div class="list-container">
@@ -62,9 +67,9 @@ export default {
             </div>
 
             <ul style="list-style-type: none;">
-                <li class="list-item" v-for="(text, index) in essays" :key="index">
+                <li class="list-item" v-for="(essay, index) in essays" :key="index">
                     <div class="list-item-container">
-                        {{ text }}
+                        {{ essay.numero }}
                         <div class="icons-container">
                             <router-link to="/formulario-redacao?">
                                 <vue-feather class="icon" type="edit-2"></vue-feather>

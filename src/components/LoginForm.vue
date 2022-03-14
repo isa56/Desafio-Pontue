@@ -23,14 +23,15 @@ export default {
                 .then(response => {
                     console.log(response)
                     localStorage.setItem('token', response.data.access_token)
+                    localStorage.setItem('aluno_id', response.data.aluno_id)
+
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`
 
                     this.$router.push({ name: 'redacoes' })
 
                 })
                 .catch(erro => console.log(erro))
-
         }
-
 
     }
 }

@@ -9,10 +9,6 @@ import Footer from "./components/Footer.vue";
 <template>
   <router-view />
   <Footer />
-  <!-- <LoginView />
-  <ListEssaysView />
-  <ReadEssayView />
-  <EssayForm />-->
 </template>
 
 <style>
