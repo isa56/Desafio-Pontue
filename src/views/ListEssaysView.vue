@@ -3,8 +3,8 @@
 import VueFeather from 'vue-feather';
 import axios from 'axios';
 
-import Footer from "@/components/Footer.vue";
 import Logo from "@/components/Logo.vue";
+import EssayItem from "@/components/EssayItem.vue";
 import { server } from '@/common';
 
 export default {
@@ -16,13 +16,26 @@ export default {
     },
     components: {
         Logo,
-        Footer,
         VueFeather,
+        EssayItem
     },
     methods: {
         logout() {
             localStorage.removeItem('token')
             this.$router.push('/')
+        },
+
+        viewEssay(essay) {
+
+            this.$router.push({ name: 'redacao', params: { essay } })
+        },
+
+        deleteEssay(essay) {
+            console.log("Deletando...", essay.numero)
+        },
+
+        editEssay(essay) {
+
         }
     },
     mounted() {
@@ -30,7 +43,6 @@ export default {
 
         axios.get(`${server}/index/aluno/${aluno_id}`)
             .then((response) => {
-                console.log(response.data.data)
                 this.essays = response.data.data
                 console.log(this.essays)
             })
@@ -68,20 +80,7 @@ export default {
 
             <ul style="list-style-type: none;">
                 <li class="list-item" v-for="(essay, index) in essays" :key="index">
-                    <div class="list-item-container">
-                        {{ essay.numero }}
-                        <div class="icons-container">
-                            <router-link to="/formulario-redacao?">
-                                <vue-feather class="icon" type="edit-2"></vue-feather>
-                            </router-link>
-                            <router-link to="/excluir-redacao?">
-                                <vue-feather class="icon" type="trash-2"></vue-feather>
-                            </router-link>
-                            <router-link to="/redacao">
-                                <vue-feather class="icon" type="eye"></vue-feather>
-                            </router-link>
-                        </div>
-                    </div>
+                    <EssayItem :essay="essay" />
                 </li>
             </ul>
         </div>

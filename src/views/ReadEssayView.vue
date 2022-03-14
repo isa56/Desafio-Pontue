@@ -11,6 +11,7 @@ export default {
     name: "ReadEssayView",
     data() {
         return {
+            essayData: {},
             essayTitle: "Redação #1",
             essayUrl: "https://images7.content-hci.com/commimg/myhotcourses/blog-inline/myhc_57702.jpg"
         };
@@ -20,6 +21,12 @@ export default {
         Footer,
         VueFeather,
         GoBackIcon
+    },
+    props: {
+        essay: Object
+    },
+    mounted() {
+        console.log(this.$route.params.essay)
     }
 }
 </script>
@@ -34,7 +41,7 @@ export default {
         </div>
 
         <div class="essay-container">
-            <h2 class="essay-title">Título: {{ essayTitle }}</h2>
+            <h2 class="essay-title">Título: {{  }}</h2>
 
             <div class="essay-file-container">
                 <img class="essay" v-bind:src="essayUrl" alt="Imagem com a sua redação." />
