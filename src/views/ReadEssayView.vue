@@ -1,9 +1,11 @@
 <script>
 
-import VueFeather from 'vue-feather'
+import VueFeather from 'vue-feather';
+import axios from 'axios';
+import { server } from '@/common';
 
-import Footer from "@/components/Footer.vue"
-import Logo from "../components/Logo.vue"
+import Footer from "@/components/Footer.vue";
+import Logo from "../components/Logo.vue";
 import GoBackIcon from '../components/GoBackIcon.vue';
 
 
@@ -11,9 +13,8 @@ export default {
     name: "ReadEssayView",
     data() {
         return {
-            essayData: {},
-            essayTitle: "Redação #1",
-            essayUrl: "https://images7.content-hci.com/commimg/myhotcourses/blog-inline/myhc_57702.jpg"
+            essayTitle: '',
+            essayUrl: ''
         };
     },
     components: {
@@ -25,8 +26,22 @@ export default {
     props: {
         essay: Object
     },
+
     mounted() {
-        console.log(this.$route.params.essay)
+
+        const essay_id = this.$route.params.id
+
+        axios.get(`${server}/redacao/${essay_id}`)
+            .then(response => {
+
+                console.log(response.data.data);
+                this.essayTitle = response.data.data.created_at;
+                this.essayUrl = response.data.data.urls[0].url;
+
+            })
+            .catch(error => console.log(error))
+
+
     }
 }
 </script>
@@ -41,10 +56,10 @@ export default {
         </div>
 
         <div class="essay-container">
-            <h2 class="essay-title">Título: {{  }}</h2>
+            <h2 class="essay-title">Título: {{ essayTitle }}</h2>
 
             <div class="essay-file-container">
-                <img class="essay" v-bind:src="essayUrl" alt="Imagem com a sua redação." />
+                <img class="essay" :src="essayUrl" alt="Imagem com a sua redação." />
             </div>
         </div>
     </div>
@@ -56,7 +71,6 @@ export default {
 .container {
     margin: 0 3em;
 }
-
 
 .essay-container {
     margin-top: 3em;
@@ -74,7 +88,7 @@ export default {
 
 @media (min-width: 769px) {
     .essay {
-        width: 900px;
+        width: 700px;
     }
 }
 

@@ -33,7 +33,6 @@ export default {
         axios.get(`${server}/index/aluno/${aluno_id}`)
             .then((response) => {
                 this.essays = response.data.data
-                console.log(this.essays)
             })
             .catch((error) => console.log(error))
 

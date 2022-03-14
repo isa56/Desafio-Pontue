@@ -21,7 +21,6 @@ export default {
                 password: this.password
             })
                 .then(response => {
-                    console.log(response)
                     localStorage.setItem('token', response.data.access_token)
                     localStorage.setItem('aluno_id', response.data.aluno_id)
 

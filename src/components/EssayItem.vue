@@ -32,7 +32,7 @@ export default {
 
             const id = essay.id;
             axios.get(`${server}/redacao/${id}`)
-                .then(response => {
+                .then(() => {
                     this.$router.push({ name: 'redacao', params: {id} });
                 })
                 .catch(error => console.log(error));
