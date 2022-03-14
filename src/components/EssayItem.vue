@@ -1,6 +1,8 @@
 <script>
 
 import VueFeather from 'vue-feather';
+import axios from 'axios';
+import { server } from '@/common';
 
 export default {
     name: 'EssayItem',
@@ -14,6 +16,29 @@ export default {
 
     components: {
         VueFeather
+    },
+
+    methods: {
+
+        editEssay(essay) {
+
+        },
+
+        deleteEssay(essay) {
+
+        },
+
+        viewEssay(essay) {
+
+            const id = essay.id;
+            axios.get(`${server}/redacao/${id}`)
+                .then(response => {
+                    this.$router.push({ name: 'redacao', params: {id} });
+                })
+                .catch(error => console.log(error));
+
+        }
+
     }
 
 }
