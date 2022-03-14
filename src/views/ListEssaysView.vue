@@ -25,19 +25,8 @@ export default {
             this.$router.push('/')
         },
 
-        viewEssay(essay) {
-
-            this.$router.push({ name: 'redacao', params: { essay } })
-        },
-
-        deleteEssay(essay) {
-            console.log("Deletando...", essay.numero)
-        },
-
-        editEssay(essay) {
-
-        }
     },
+
     mounted() {
         const aluno_id = localStorage.getItem('aluno_id')
 
@@ -123,14 +112,6 @@ export default {
 .add-button:hover {
     background-color: var(--logo-purple);
     cursor: pointer;
-}
-
-.icon {
-    margin-right: 0.8em;
-}
-
-.icon:hover {
-    color: var(--logo-pink);
 }
 
 .list-item {

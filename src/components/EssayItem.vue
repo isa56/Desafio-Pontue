@@ -24,13 +24,13 @@ export default {
     <div class="list-item-container">
         {{ essay.numero }}
         <div class="icons-container">
-            <router-link to="/formulario-redacao?">
+            <div class="icon-container" @click="editEssay(essay)">
                 <vue-feather class="icon" type="edit-2"></vue-feather>
-            </router-link>
-            <div style="display: inline; cursor: pointer;" @click="deleteEssay(essay)">
+            </div>
+            <div class="icon-container" @click="deleteEssay(essay)">
                 <vue-feather class="icon" type="trash-2"></vue-feather>
             </div>
-            <div style="display: inline; cursor: pointer;" @click="viewEssay(essay)">
+            <div class="icon-container" @click="viewEssay(essay)">
                 <vue-feather class="icon" type="eye"></vue-feather>
             </div>
         </div>
@@ -58,5 +58,18 @@ export default {
 .icons-container {
     display: inline;
     text-align: end;
+}
+
+.icon-container {
+    cursor: pointer;
+    display: inline;
+}
+
+.icon {
+    margin-right: 0.8em;
+}
+
+.icon:hover {
+    color: var(--logo-pink);
 }
 </style>
