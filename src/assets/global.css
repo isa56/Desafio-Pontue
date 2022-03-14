@@ -22,8 +22,6 @@
         url(../fonts/Merienda/MuseoSans_500.otf) format("otf");
     }
 
-
-
     /* Definitions: */
     background-color: var( --white-background-2 );
     color: var(--text-color );
@@ -44,10 +42,15 @@ a {
 }
 
 a:hover {
-    color: var(--text-accent);
+    color: var(--logo-pink);
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+::selection {
+    color: var(--white-background);
+    background-color: var(--logo-pink);
 }

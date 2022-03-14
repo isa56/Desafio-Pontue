@@ -93,8 +93,12 @@ export default {
             <h2 class="form-title" v-else>Altere a redação</h2>
 
             <div class="current-essay-container" v-if="essayUrl !== ''">
-                <!-- <img class="current-essay-file" :src="essayUrl" alt="Sua redação atual." /> -->
-                <embed :src="essayurl" width="500" height="375" type="application/pdf" />
+                <iframe
+                    class="current-essay-file"
+                    :src="essayUrl"
+                    style="width:800px; height:600px;"
+                    frameborder="0"
+                ></iframe>
             </div>
 
             <label class="input-label">
@@ -138,14 +142,14 @@ export default {
     text-align: center;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 800px) {
     .current-essay-file {
         border-radius: 8px;
         width: 100%;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 799px) {
     .container {
         margin: 0;
     }
@@ -203,4 +207,5 @@ export default {
     background: var(--white-background);
     color: var(--logo-purple);
 }
+
 </style>

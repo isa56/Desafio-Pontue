@@ -4,7 +4,6 @@ import VueFeather from 'vue-feather';
 import axios from 'axios';
 import { server } from '@/common';
 
-import Footer from "@/components/Footer.vue";
 import Logo from "../components/Logo.vue";
 import GoBackIcon from '../components/GoBackIcon.vue';
 
@@ -19,7 +18,6 @@ export default {
     },
     components: {
         Logo,
-        Footer,
         VueFeather,
         GoBackIcon
     },
@@ -59,7 +57,12 @@ export default {
             <h2 class="essay-title">Título: {{ essayTitle }}</h2>
 
             <div class="essay-file-container">
-                <img class="essay" :src="essayUrl" alt="Imagem com a sua redação." />
+                <iframe
+                    class="essay"
+                    :src="essayUrl"
+                    style="border-radius: 8px; height:600px; width:800px;"
+                    frameborder="0"
+                ></iframe>
             </div>
         </div>
     </div>
@@ -74,10 +77,15 @@ export default {
 
 .essay-container {
     margin-top: 3em;
+    background: var(--primary-color);
+    border-radius: 8px;
+    color: var(--white-background);
+    display: block;
+    margin: 5em;
+    padding: 3em;
 }
 
 .essay-title {
-    color: var(--text-color);
     margin-bottom: 1.5em;
 }
 
@@ -86,15 +94,20 @@ export default {
     justify-content: center;
 }
 
-@media (min-width: 769px) {
-    .essay {
-        width: 700px;
-    }
-}
+@media (max-width: 799px) {
 
-@media (max-width: 768px) {
+    .container {
+        margin: 0;
+    }
     .essay {
         width: 100%;
     }
+
+    .essay-container {
+        margin: 1em 0;
+        width: 90%;
+    }
+
 }
+
 </style>
