@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { server } from '@/common';
+import { ref } from 'vue';
 
 import Logo from "../components/Logo.vue";
 import Footer from "../components/Footer.vue";
@@ -13,7 +14,9 @@ export default {
     data() {
         return {
             essayId: '',
-            essayUrl: ''
+            essayUrl: '',
+            file: '',
+            message: ''
         };
     },
     components: { Logo, Footer, GoBackIcon },
@@ -34,45 +37,74 @@ export default {
 
     methods: {
 
-        postEssay(event) {
-            if (this.essayUrl) { // se há uma imagem
+        postEssay() {
 
-                if (this.essayId) { // atualiza a redação
-                    this.updateEssay();
-                } else { // cria a redação
-                    this.createEssay();
-                }
-
+            if (this.essayId) { // atualiza a redação
+                this.updateEssay();
+            } else { // cria a redação
+                this.createEssay();
             }
+
+        },
+
+        async handleFile(event) {
+            this.file = event.target.files[0];
+            console.log(this.file);
+
         },
 
         updateEssay() {
 
             console.log("Update!")
-            /*
-                        axios.get(`${server}/redacao/${essay_id}`)
-                            .then(response => {
-            
-                                console.log(response.data.data);
-                                this.essayDate = response.data.data.created_at;
-                                this.essayUrl = response.data.data.urls[0].url;
-            
-                            })
-                            .catch(error => console.log(error))
-            */
+
+            let formData = new FormData()
+            formData.append('file[]', this.file)
+
+            axios.post(`${server}/redacao/${this.essayId}/update`, {
+                urls: this.essayUrl,
+                file: formData
+            },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(response => {
+
+                    console.log(response.data.data);
+                    this.essayDate = response.data.data.created_at;
+                    this.essayUrl = response.data.data.urls[0].url;
+
+                })
+                .catch(error => console.log(error))
+
         },
 
         createEssay() {
 
             console.log("Create!")
 
+            let formData = new FormData()
+            formData.append('file[]', this.file)
+
+
             axios.post(`${server}/alunos/redacao/create/`, {
-                file: this.essayUrl
+                file: formData
             }, {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'multipart/form-data'
+                }
             })
-                .then(response => console.log(response))
-                .catch(error => console.log(error))
+                .then(response => {
+                    console.log("Sucesso!", response)
+                    this.message = "Sucesso! O arquivo foi enviado!"
+                })
+                .catch(error => {
+                    console.log("Erro!", error)
+                    this.message = "Ocorreu um erro ao enviar o arquivo."
+                })
         }
 
     }
@@ -105,8 +137,9 @@ export default {
                 <input
                     class="input-essay"
                     type="file"
+                    id="file"
                     accept="image/png, image/jpeg, application/pdf"
-                    @change="essayUrl"
+                    @change="handleFile($event)"
                 />
                 Escolher arquivo
             </label>
@@ -114,6 +147,8 @@ export default {
             <div class="btn-container">
                 <button class="submit-button" type="submit" @click="postEssay">Enviar redação</button>
             </div>
+
+            <h3>{{ message }}</h3>
         </div>
     </div>
 </template>
@@ -170,6 +205,7 @@ export default {
     border: none;
     border-radius: 8px;
     color: var(--white-background);
+    cursor: pointer;
     font-family: "Museo Sans", sans-serif;
     font-size: 1em;
     margin: 1.5em 0.6em;
@@ -196,6 +232,7 @@ export default {
     border: none;
     border-radius: 8px;
     color: var(--white-background);
+    cursor: pointer;
     font-family: "Museo Sans", sans-serif;
     font-size: 1em;
     margin: 2em 0 1em;
@@ -207,5 +244,4 @@ export default {
     background: var(--white-background);
     color: var(--logo-purple);
 }
-
 </style>
