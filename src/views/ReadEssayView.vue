@@ -53,16 +53,18 @@ export default {
             <GoBackIcon />
         </div>
 
-        <div class="essay-container">
-            <h2 class="essay-title">Título: {{ essayTitle }}</h2>
+        <div class="data-container">
+            <div class="essay-container">
+                <h2 class="essay-title">Título: {{ essayTitle }}</h2>
 
-            <div class="essay-file-container">
-                <iframe
-                    class="essay"
-                    :src="essayUrl"
-                    style="border-radius: 8px; height:600px; width:800px;"
-                    frameborder="0"
-                ></iframe>
+                <div class="essay-file-container">
+                    <iframe
+                        class="essay"
+                        :src="essayUrl"
+                        style="border-radius: 8px; height:600px; width:90%;"
+                        frameborder="0"
+                    ></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -77,12 +79,12 @@ export default {
 }
 
 .essay-container {
-    margin-top: 3em;
     background: var(--primary-color);
     border-radius: 8px;
     color: var(--white-background);
     display: block;
     margin: 5em;
+    margin-top: 3em;
     padding: 3em;
 }
 
@@ -96,7 +98,6 @@ export default {
 }
 
 @media (max-width: 799px) {
-
     .container {
         margin: 0;
     }
@@ -104,11 +105,18 @@ export default {
         width: 100%;
     }
 
-    .essay-container {
-        margin: 1em 0;
-        width: 90%;
+    .data-container {
+        display: flex;
+        justify-content: center;
     }
 
+    .essay-container {
+        align-items: center;
+        justify-content: center;
+        margin: 1em 1em;
+        text-align: center;
+        /* margin: 1em 0; */
+        width: 90%;
+    }
 }
-
 </style>

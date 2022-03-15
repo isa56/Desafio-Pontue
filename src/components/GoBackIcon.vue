@@ -39,4 +39,11 @@ export default {
     background-color: var(--logo-purple);
 }
 
+@media (max-width: 799px) {
+    .icon-container {
+        margin-bottom: 0.4em;
+        margin-left: 1.6em;
+    }
+}
+
 </style>

@@ -55,9 +55,15 @@ import Logo from "@/components/Logo.vue";
         background: var(--primary-color);
         border-radius: 8px;
         color: var(--white-background);
-        margin: 0;
+        margin: 0 0.4em;
         padding: 0.4em;
         width: auto;
     }
+
+    .callToAction {
+        font-size: 1.2em;
+        margin: 1em;
+    }
+
 }
 </style>
