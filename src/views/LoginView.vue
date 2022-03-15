@@ -39,6 +39,7 @@ import Logo from "@/components/Logo.vue";
     padding: 2em 3em;
 }
 
+
 .callToAction {
     font-family: "Museo Sans", sans-serif;
     color: var(--white-background);
@@ -64,6 +65,5 @@ import Logo from "@/components/Logo.vue";
         font-size: 1.2em;
         margin: 1em;
     }
-
 }
 </style>

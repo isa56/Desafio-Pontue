@@ -68,7 +68,7 @@ export default {
                     this.essays = response.data.data
                 })
                 .catch((error) => console.log(error))
-        }
+        },
 
     },
 
@@ -151,6 +151,10 @@ export default {
     width: auto;
 }
 
+.delete-message {
+    display: none;
+}
+
 .greetings-h2 {
     color: var(--logo-pink);
     margin-left: 2.7em;
@@ -171,14 +175,22 @@ export default {
     font-family: "Museo Sans", sans-serif;
     font-size: 0.8em;
     font-weight: bold;
+    margin: 0.4em 2.6em;
     justify-content: space-between;
     padding: 0.6em;
-    margin: 0.4em 2.6em;
+    transition: transform 0.3s;
 }
 
 .add-button:hover {
-    background-color: var(--logo-purple);
+    background-color: var(--white-background);
+    border: 1px solid var(--logo-pink);
+    color: var(--logo-pink);
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+.add-button:hover .icon {
+    color: var(--logo-pink);
 }
 
 .list-item {
@@ -216,7 +228,6 @@ export default {
         margin-left: 0;
         padding-left: 0;
     }
-
 
     .btn-container {
         margin: 0;

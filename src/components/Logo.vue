@@ -21,6 +21,11 @@ export default {
 .logo {
     height: auto;
     width: 16%;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

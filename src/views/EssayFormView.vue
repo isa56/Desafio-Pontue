@@ -205,12 +205,14 @@ export default {
     font-size: 1em;
     margin: 1.5em 0.6em;
     padding: 0.6em;
+    transition: transform 0.3s;
     width: 50%;
 }
 
 .input-label:hover {
     background: var(--white-background);
     color: var(--logo-purple);
+    transform: scale(1.1);
 }
 
 .input-essay {
@@ -232,12 +234,14 @@ export default {
     font-size: 1em;
     margin: 2em 0 1em;
     padding: 0.6em;
+    transition: transform 0.3s;
     width: 50%;
 }
 
 .submit-button:hover {
     background: var(--white-background);
     color: var(--logo-purple);
+    transform: scale(1.1);
 }
 
 @media (max-width: 799px) {
