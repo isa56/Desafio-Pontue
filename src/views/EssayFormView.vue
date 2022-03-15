@@ -205,14 +205,15 @@ export default {
     font-size: 1em;
     margin: 1.5em 0.6em;
     padding: 0.6em;
-    transition: transform 0.3s;
+    transition: font-size 0.3s, background 0.3s, border 0.3s, color .3s;
     width: 50%;
 }
 
 .input-label:hover {
     background: var(--white-background);
-    color: var(--logo-purple);
-    transform: scale(1.1);
+    border: 1px solid var(--logo-pink);
+    color: var(--logo-pink);
+    font-size: 1.1em;
 }
 
 .input-essay {
@@ -240,7 +241,8 @@ export default {
 
 .submit-button:hover {
     background: var(--white-background);
-    color: var(--logo-purple);
+    border: 1px solid var(--logo-pink);
+    color: var(--logo-pink);
     transform: scale(1.1);
 }
 

@@ -90,7 +90,7 @@ export default {
     font-size: 1em;
     margin: 0.6em;
     padding: 0.6em;
-    transition: transform 0.3s;
+    transition: transform 0.3s, background 0.3s, border 0.3s, color 0.3s;
     width: 50%;
 }
 

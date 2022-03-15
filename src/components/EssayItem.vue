@@ -49,6 +49,7 @@ export default {
             axios.delete(`${server}/redacao/${id}/delete`)
                 .then((response) => {
                     console.log("Deleção feita com sucesso!\n", response)
+                    alert("Deleção feita com sucesso!")
                     this.$emit('getItems')
                 })
                 .catch(error => console.log(error));
@@ -118,7 +119,7 @@ export default {
 
 .icon {
     margin-right: 0.8em;
-    transition: transform 0.3s;
+    transition: transform 0.3s, color .3s;
 }
 
 .icon:hover {
