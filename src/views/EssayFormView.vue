@@ -73,9 +73,15 @@ export default {
                     console.log(response.data.data);
                     this.essayDate = response.data.data.created_at;
                     this.essayUrl = response.data.data.urls[0].url;
+                    this.message = "Sucesso! O arquivo foi enviado!"
+
 
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    console.log(error.response.data)
+                    this.message = "Ocorreu um erro ao enviar o arquivo."
+                }
+                )
 
         },
 
