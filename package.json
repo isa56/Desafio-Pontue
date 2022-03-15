@@ -9,11 +9,9 @@
   "dependencies": {
     "axios": "^0.26.1",
     "feather-icons": "^4.28.0",
-    "vee-validate": "^4.5.10",
     "vue": "^3.2.31",
     "vue-feather": "^2.0.0",
-    "vue-router": "^4.0.14",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.2",

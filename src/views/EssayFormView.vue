@@ -50,7 +50,7 @@ export default {
         async handleFile(event) {
             this.file = event.target.files[0];
             console.log(this.file);
-
+            this.message = "Um arquivo foi selecionado"
         },
 
         updateEssay() {
@@ -158,7 +158,7 @@ export default {
                     <button class="submit-button" type="submit" @click="postEssay">Enviar redação</button>
                 </div>
 
-                <h3>{{ message }}</h3>
+                <h4>{{ message }}</h4>
             </div>
         </div>
     </div>
@@ -205,14 +205,15 @@ export default {
     font-size: 1em;
     margin: 1.5em 0.6em;
     padding: 0.6em;
-    transition: transform 0.3s;
+    transition: font-size 0.3s, background 0.3s, border 0.3s, color .3s;
     width: 50%;
 }
 
 .input-label:hover {
     background: var(--white-background);
-    color: var(--logo-purple);
-    transform: scale(1.1);
+    border: 1px solid var(--logo-pink);
+    color: var(--logo-pink);
+    font-size: 1.1em;
 }
 
 .input-essay {
@@ -240,7 +241,8 @@ export default {
 
 .submit-button:hover {
     background: var(--white-background);
-    color: var(--logo-purple);
+    border: 1px solid var(--logo-pink);
+    color: var(--logo-pink);
     transform: scale(1.1);
 }
 

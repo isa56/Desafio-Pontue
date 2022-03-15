@@ -178,7 +178,7 @@ export default {
     margin: 0.4em 2.6em;
     justify-content: space-between;
     padding: 0.6em;
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s, border 0.3s, color .3s;
 }
 
 .add-button:hover {
