@@ -120,39 +120,41 @@ export default {
         <div class="header-container">
             <Logo />
 
-            <GoBackIcon />
+            <GoBackIcon class="go-back-icon" />
         </div>
 
-        <div class="form-container">
-            <h2 class="form-title" v-if="essayUrl === ''">Adicione uma nova redação</h2>
-            <h2 class="form-title" v-else>Altere a redação</h2>
+        <div class="data-container">
+            <div class="form-container">
+                <h2 class="form-title" v-if="essayUrl === ''">Adicione uma nova redação</h2>
+                <h2 class="form-title" v-else>Altere a redação</h2>
 
-            <div class="current-essay-container" v-if="essayUrl !== ''">
-                <iframe
-                    class="current-essay-file"
-                    :src="essayUrl"
-                    style="width:800px; height:600px;"
-                    frameborder="0"
-                ></iframe>
+                <div class="current-essay-container" v-if="essayUrl !== ''">
+                    <iframe
+                        class="current-essay-file"
+                        :src="essayUrl"
+                        style="width:90%; height:600px;"
+                        frameborder="0"
+                    ></iframe>
+                </div>
+
+                <label class="input-label">
+                    <input
+                        class="input-essay"
+                        type="file"
+                        id="file"
+                        accept="image/png, image/jpeg, application/pdf"
+                        @change="handleFile($event)"
+                        required
+                    />
+                    Escolher arquivo
+                </label>
+
+                <div class="btn-container">
+                    <button class="submit-button" type="submit" @click="postEssay">Enviar redação</button>
+                </div>
+
+                <h3>{{ message }}</h3>
             </div>
-
-            <label class="input-label">
-                <input
-                    class="input-essay"
-                    type="file"
-                    id="file"
-                    accept="image/png, image/jpeg, application/pdf"
-                    @change="handleFile($event)"
-                    required
-                />
-                Escolher arquivo
-            </label>
-
-            <div class="btn-container">
-                <button class="submit-button" type="submit" @click="postEssay">Enviar redação</button>
-            </div>
-
-            <h3>{{ message }}</h3>
         </div>
     </div>
 </template>
@@ -184,22 +186,6 @@ export default {
 @media (min-width: 800px) {
     .current-essay-file {
         border-radius: 8px;
-        width: 100%;
-    }
-}
-
-@media (max-width: 799px) {
-    .container {
-        margin: 0;
-    }
-
-    .form-container {
-        margin: 1em 0;
-        width: 90%;
-    }
-    .current-essay-file {
-        border-radius: 8px;
-        margin: 1em 0;
         width: 100%;
     }
 }
@@ -248,4 +234,49 @@ export default {
     background: var(--white-background);
     color: var(--logo-purple);
 }
+
+@media (max-width: 799px) {
+    body {
+        margin: 0;
+    }
+
+    .container {
+        margin: 0;
+        /* justify-content: center; */
+    }
+
+    .data-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-container {
+        align-items: center;
+        justify-content: center;
+        margin: 1em 0.5em;
+        text-align: center;
+        width: 60%;
+    }
+
+    .form-title {
+        font-size: 1.3em;
+    }
+
+    .current-essay-file {
+        border-radius: 8px;
+        margin: 1em 0;
+        width: 200px;
+    }
+
+    .input-label {
+        font-size: 0.9em;
+        margin-top: 1em;
+    }
+
+    .btn-container {
+        font-size: 0.9em;
+        margin-top: 1em;
+    }
+}
+
 </style>

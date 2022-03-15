@@ -93,39 +93,39 @@ export default {
     <div class="container">
         <div class="header-container">
             <Logo />
+        </div>
 
-            <div class="btn-container" style="justify-content: start; margin-left: 2em;">
+        <div class="data-container">
+            <div class="btn-container logout">
                 <div class="add-button" @click="logout">
                     <p>Sair da conta</p>
                     <vue-feather style="margin-left: 5px;" class="icon" type="log-out"></vue-feather>
                 </div>
             </div>
 
-            <h2 style="margin-left: 2em;">Olá, {{ this.alunoId ? "aluno" : "administrador" }}!</h2>
-        </div>
+            <h2 class="greetings-h2">Olá, {{ this.alunoId ? "aluno" : "administrador" }}!</h2>
 
-        <div class="list-container">
-            <div v-if="this.alunoId" class="btn-container">
-                <router-link style="text-decoration: none;" to="/formulario-redacao">
-                    <div class="add-button">
-                        <p>Adicionar Redação</p>
-                        <vue-feather class="icon" type="plus"></vue-feather>
-                    </div>
-                </router-link>
-            </div>
+            <div class="list-container">
+                <div v-if="this.alunoId" class="btn-container">
+                    <router-link style="text-decoration: none;" to="/formulario-redacao">
+                        <div class="add-button">
+                            <p>Adicionar Redação</p>
+                            <vue-feather class="icon" type="plus"></vue-feather>
+                        </div>
+                    </router-link>
+                </div>
 
-            <div v-if="this.essays.length > 0">
-                <ul style="list-style-type: none;">
-                    <li class="list-item" v-for="(essay, index) in essays" :key="index">
-                        <EssayItem @get-items="getItems" :essay="essay" />
-                    </li>
-                </ul>
-            </div>
+                <div v-if="this.essays.length > 0">
+                    <ul class="unordered-list" style="list-style-type: none;">
+                        <li class="list-item" v-for="(essay, index) in essays" :key="index">
+                            <EssayItem @get-items="getItems" :essay="essay" />
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="message-container" v-else >
-
-                <h3>Não há redações para exibir</h3>
-
+                <div class="message-container" v-else>
+                    <h3>Não há redações para exibir</h3>
+                </div>
             </div>
         </div>
     </div>
@@ -135,7 +135,8 @@ export default {
 @import "@/assets/global.css";
 
 .container {
-    margin: 1em;
+    margin: 2em;
+    font-family: "Museo Sans", sans-serif;
 }
 
 .header-container {
@@ -150,6 +151,17 @@ export default {
     width: auto;
 }
 
+.greetings-h2 {
+    color: var(--logo-pink);
+    margin-left: 2.7em;
+    margin-top: 1.2em;
+}
+
+.logout {
+    justify-content: start;
+    margin-left: 2em;
+}
+
 .add-button {
     align-items: center;
     background-color: var(--logo-pink);
@@ -160,8 +172,8 @@ export default {
     font-size: 0.8em;
     font-weight: bold;
     justify-content: space-between;
-    padding: 0.5em;
-    margin: 0.4em 1em;
+    padding: 0.6em;
+    margin: 0.4em 2.6em;
 }
 
 .add-button:hover {
@@ -173,7 +185,7 @@ export default {
     background-color: var(--primary-color);
     border-radius: 8px;
     color: var(--white-background);
-    margin: 0.8em;
+    margin: 1em 2em;
     padding: 1em;
     text-decoration: none;
 }
@@ -195,4 +207,37 @@ export default {
     text-align: center;
 }
 
+@media (max-width: 600px) {
+    .container {
+        margin: 0;
+    }
+
+    .header-container {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+
+    .btn-container {
+        margin: 0;
+        font-size: 0.75em;
+    }
+
+    .greetings-h2 {
+        margin: 1.5em 0;
+        text-align: center;
+    }
+    .add-button {
+        margin: 0.65em;
+    }
+
+    .list-item {
+        margin: 1em 0.4em;
+    }
+
+    .unordered-list {
+        margin: 0;
+        padding: 0;
+    }
+}
 </style>

@@ -98,4 +98,12 @@ export default {
     color: var(--logo-pink);
     cursor: pointer;
 }
+
+@media (max-width: 767px) {
+    .login-button {
+        font-size: 0.8em;
+        margin: 1.6em;
+    }
+}
+
 </style>
