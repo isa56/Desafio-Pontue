@@ -33,12 +33,13 @@ export default {
             .then(response => {
 
                 console.log(response.data.data);
-                this.essayTitle = response.data.data.created_at;
+
+                this.essayTitle = response.data.data.created_at.split(' ')[0];
+                this.essayTitle = this.essayTitle.split('-')[2] + '/' + this.essayTitle.split('-')[1] + '/' + this.essayTitle.split('-')[0];
                 this.essayUrl = response.data.data.urls[0].url;
 
             })
             .catch(error => console.log(error))
-
 
     }
 }
@@ -93,8 +94,10 @@ export default {
 }
 
 .essay-file-container {
+    align-items: center;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 @media (max-width: 799px) {

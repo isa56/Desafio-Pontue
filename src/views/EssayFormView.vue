@@ -74,7 +74,9 @@ export default {
                     this.essayDate = response.data.data.created_at;
                     this.essayUrl = response.data.data.urls[0].url;
                     this.message = "Sucesso! O arquivo foi enviado!"
-
+                    setTimeout(() => {
+                        this.$router.push({ name: 'redacoes' })
+                    }, 2000);
 
                 })
                 .catch(error => {
@@ -103,6 +105,9 @@ export default {
                 .then(response => {
                     console.log("Sucesso!", response)
                     this.message = "Sucesso! O arquivo foi enviado!"
+                    setTimeout(() => {
+                        this.$router.push({ name: 'redacoes' })
+                    }, 2000);
                 })
                 .catch(error => {
                     console.log("Erro!", error.response.data)
@@ -278,5 +283,4 @@ export default {
         margin-top: 1em;
     }
 }
-
 </style>
