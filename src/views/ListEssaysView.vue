@@ -26,6 +26,16 @@ export default {
             this.$router.push('/')
         },
 
+        getItems() {
+            /*
+            if (this.isAdmin == true) {
+                this.getItemsAdmin()
+            } else {
+                */
+            this.getItemsStudent()
+            // }
+        },
+
         getItemsStudent() {
 
             const aluno_id = localStorage.getItem('aluno_id')
@@ -36,23 +46,27 @@ export default {
                 .then((response) => {
                     this.essays = response.data.data
                 })
-                .catch((error) => console.log(error))
+                .catch((error) => {
+                    console.log("Erro no aluno")
+                    console.log(error)
+                }
+                )
 
         },
 
         getItemsAdmin() {
 
             console.log(this.isAdmin);
-            
-                axios.get(`${server}/index/admin`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
+
+            axios.get(`${server}/index/admin`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+                .then((response) => {
+                    this.essays = response.data.data
                 })
-                    .then((response) => {
-                        this.essays = response.data.data
-                    })
-                    .catch((error) => console.log(error))
+                .catch((error) => console.log(error))
         }
 
     },
@@ -61,11 +75,10 @@ export default {
 
         this.isAdmin = this.$route.params.isAdmin;
 
-        if (this.isAdmin == true) {
-            this.getItemsAdmin()
-        } else {
-            this.getItemsStudent()
-        }
+        console.log(this.isAdmin);
+
+        this.getItems();
+
 
     }
 
@@ -100,7 +113,7 @@ export default {
 
             <ul style="list-style-type: none;">
                 <li class="list-item" v-for="(essay, index) in essays" :key="index">
-                    <EssayItem @get-items="getItemsStudent" :essay="essay" />
+                    <EssayItem @get-items="getItems" :essay="essay" />
                 </li>
             </ul>
         </div>

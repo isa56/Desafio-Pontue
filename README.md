@@ -5,7 +5,7 @@ Desenvolvido com [Vue.Js](https://vuejs.org) por [Isadora Gonçalves Ferreira](h
 
 
 ## Deploy disponível em:
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a2737239-6068-4b7a-bd49-7f9eed26c45d/deploy-status)](https://app.netlify.com/sites/desafio-pontue-vuejs/deploys) 
 [https://desafio-pontue-vuejs.netlify.app/](https://desafio-pontue-vuejs.netlify.app/);
 
 
