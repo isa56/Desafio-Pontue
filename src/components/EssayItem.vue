@@ -8,7 +8,7 @@ export default {
     name: 'EssayItem',
     data() {
         return {
-
+            date: ''
         }
     },
 
@@ -19,6 +19,14 @@ export default {
     },
 
     emits: ['getItems'],
+
+    mounted() {
+
+        this.date = this.essay.created_at.split(' ')[0];
+
+        this.date = this.date.split('-')[2] + '/' + this.date.split('-')[1] + '/' + this.date.split('-')[0];
+
+    },
 
     methods: {
 
@@ -39,8 +47,8 @@ export default {
             const id = essay.id;
 
             axios.delete(`${server}/redacao/${id}/delete`)
-                .then((response) => { 
-                    console.log("Deleção feita com sucesso!\n", response) 
+                .then((response) => {
+                    console.log("Deleção feita com sucesso!\n", response)
                     this.$emit('getItems')
                 })
                 .catch(error => console.log(error));
@@ -55,7 +63,6 @@ export default {
                     this.$router.push({ name: 'redacao', params: { id } });
                 })
                 .catch(error => console.log(error));
-
         }
 
     }
@@ -66,7 +73,7 @@ export default {
 
 <template>
     <div class="list-item-container" :key="essay.id">
-        {{ essay.created_at }}
+        {{ date }}
         <div class="icons-container">
             <div class="icon-container" @click="editEssay(essay)">
                 <vue-feather class="icon" type="edit-2"></vue-feather>

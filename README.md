@@ -27,7 +27,6 @@ Desenvolvido com [Vue.Js](https://vuejs.org) por [Isadora Gonçalves Ferreira](h
    * **admin@pontue.com.br**
    * filomena.cavaco@pontue.com.br
    * vanda.nascimento@pontue.com.br
-   * filomena.cavaco@pontue.com.br
    * alcides.montenegro@pontue.com.br
    * cornelio.leite@pontue.com.br
    * cristina.delima@pontue.com.br
