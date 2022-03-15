@@ -33,7 +33,13 @@ export default {
         editEssay(essay) {
 
             const id = essay.id;
-            axios.get(`${server}/redacao/${id}`)
+            axios.get(`${server}/redacao/${id}`,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
                 .then(() => {
                     this.$router.push({ name: 'formulario-redacao', params: { id } });
                 })
@@ -46,7 +52,12 @@ export default {
 
             const id = essay.id;
 
-            axios.delete(`${server}/redacao/${id}/delete`)
+            axios.delete(`${server}/redacao/${id}/delete`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then((response) => {
                     console.log("Deleção feita com sucesso!\n", response)
                     alert("Deleção feita com sucesso!")
@@ -59,7 +70,12 @@ export default {
         viewEssay(essay) {
 
             const id = essay.id;
-            axios.get(`${server}/redacao/${id}`)
+            axios.get(`${server}/redacao/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then(() => {
                     this.$router.push({ name: 'redacao', params: { id } });
                 })
@@ -119,7 +135,7 @@ export default {
 
 .icon {
     margin-right: 0.8em;
-    transition: transform 0.3s, color .3s;
+    transition: transform 0.3s, color 0.3s;
 }
 
 .icon:hover {

@@ -50,7 +50,7 @@ export default {
         async handleFile(event) {
             this.file = event.target.files[0];
             console.log(this.file);
-
+            this.message = "Um arquivo foi selecionado"
         },
 
         updateEssay() {
@@ -158,7 +158,7 @@ export default {
                     <button class="submit-button" type="submit" @click="postEssay">Enviar redação</button>
                 </div>
 
-                <h3>{{ message }}</h3>
+                <h4>{{ message }}</h4>
             </div>
         </div>
     </div>
