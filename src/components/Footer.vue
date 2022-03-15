@@ -2,11 +2,19 @@
     <div class="footer">
         <p>
             Desenvolvido por
-            <a href="https://github.com/isa56/" target="_blank">Isadora Gonçalves Ferreira</a>.
+            <a
+                class="footer-txt"
+                href="https://github.com/isa56/"
+                target="_blank"
+            >Isadora Gonçalves Ferreira</a>.
         </p>
         <p>
             Processo Seletivo de
-            <a href="https://pontue.com.br/" target="_blank">Pontue</a>.
+            <a
+                class="footer-txt"
+                href="https://pontue.com.br/"
+                target="_blank"
+            >Pontue</a>.
         </p>
     </div>
 </template>
@@ -23,4 +31,13 @@
     padding: 0.4em;
     text-align: center;
 }
+
+.footer-txt {
+    transition: transform 0.3s;
+}
+
+.footer-txt:hover {
+    transform: scale(1.1);
+}
+
 </style>

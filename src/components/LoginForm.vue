@@ -90,13 +90,16 @@ export default {
     font-size: 1em;
     margin: 0.6em;
     padding: 0.6em;
+    transition: transform 0.3s;
     width: 50%;
 }
 
 .login-button:hover {
     background: var(--white-background);
+    border: 1px solid var(--logo-pink);
     color: var(--logo-pink);
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 @media (max-width: 767px) {
@@ -105,5 +108,4 @@ export default {
         margin: 1.6em;
     }
 }
-
 </style>

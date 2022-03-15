@@ -118,9 +118,11 @@ export default {
 
 .icon {
     margin-right: 0.8em;
+    transition: transform 0.3s;
 }
 
 .icon:hover {
     color: var(--logo-pink);
+    transform: scale(1.2);
 }
 </style>

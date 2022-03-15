@@ -34,9 +34,11 @@ export default {
     height: 40px;
     justify-content: center;
     width: 40px;
+    transition: transform 0.3s;
 }
 .icon-container:hover {
     background-color: var(--logo-purple);
+    transform: scale(1.2);
 }
 
 @media (max-width: 799px) {
@@ -45,5 +47,4 @@ export default {
         margin-left: 1.6em;
     }
 }
-
 </style>
