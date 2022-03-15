@@ -61,10 +61,7 @@ export default {
             formData.append('urls[]', this.essayUrl)
             formData.append('file[]', this.file)
 
-            axios.post(`${server}/redacao/${this.essayId}/update`, {
-                urls: this.essayUrl,
-                file: formData
-            },
+            axios.post(`${server}/redacao/${this.essayId}/update`, formData,
                 {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -87,12 +84,11 @@ export default {
             console.log("Create!")
 
             let formData = new FormData()
+
             formData.append('file[]', this.file)
 
 
-            axios.post(`${server}/alunos/redacao/create/`, {
-                file: formData
-            }, {
+            axios.post(`${server}/alunos/redacao/create/`, formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
@@ -103,7 +99,7 @@ export default {
                     this.message = "Sucesso! O arquivo foi enviado!"
                 })
                 .catch(error => {
-                    console.log("Erro!", error)
+                    console.log("Erro!", error.response.data)
                     this.message = "Ocorreu um erro ao enviar o arquivo."
                 })
         }
@@ -141,6 +137,7 @@ export default {
                     id="file"
                     accept="image/png, image/jpeg, application/pdf"
                     @change="handleFile($event)"
+                    required
                 />
                 Escolher arquivo
             </label>
