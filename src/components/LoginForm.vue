@@ -16,6 +16,12 @@ export default {
 
         async login(event) {
 
+            let isAdmin = false;
+
+            if (this.email === "admin@pontue.com.br") {
+                isAdmin = true;
+            }
+
             axios.post(`${server}/auth/login`, {
                 email: this.email,
                 password: this.password
@@ -26,7 +32,7 @@ export default {
 
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`
 
-                    this.$router.push({ name: 'redacoes' })
+                    this.$router.push({ name: 'redacoes', params: { isAdmin } })
 
                 })
                 .catch(erro => console.log(erro))
@@ -98,6 +104,4 @@ export default {
     color: var(--logo-pink);
     cursor: pointer;
 }
-
-
 </style>

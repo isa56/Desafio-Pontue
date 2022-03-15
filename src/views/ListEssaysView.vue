@@ -11,7 +11,8 @@ export default {
     name: 'ListEssays',
     data() {
         return {
-            essays: []
+            essays: [],
+            isAdmin: false,
         }
     },
     components: {
@@ -25,7 +26,8 @@ export default {
             this.$router.push('/')
         },
 
-        getItems() {
+        getItemsStudent() {
+
             const aluno_id = localStorage.getItem('aluno_id')
 
             axios.get(`${server}/index/aluno/${aluno_id}`, {
@@ -35,15 +37,40 @@ export default {
                     this.essays = response.data.data
                 })
                 .catch((error) => console.log(error))
+
+        },
+
+        getItemsAdmin() {
+
+            console.log(this.isAdmin);
+            
+                axios.get(`${server}/index/admin`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
+                    .then((response) => {
+                        this.essays = response.data.data
+                    })
+                    .catch((error) => console.log(error))
         }
 
     },
 
     mounted() {
-        this.getItems();
+
+        this.isAdmin = this.$route.params.isAdmin;
+
+        if (this.isAdmin == true) {
+            this.getItemsAdmin()
+        } else {
+            this.getItemsStudent()
+        }
+
     }
 
 }
+
 </script>
 
 <template>
@@ -73,7 +100,7 @@ export default {
 
             <ul style="list-style-type: none;">
                 <li class="list-item" v-for="(essay, index) in essays" :key="index">
-                    <EssayItem @get-items="getItems" :essay="essay" />
+                    <EssayItem @get-items="getItemsStudent" :essay="essay" />
                 </li>
             </ul>
         </div>
