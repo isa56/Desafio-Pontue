@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             essays: [],
-            isAdmin: false,
+            alunoId: false,
         }
     },
     components: {
@@ -27,20 +27,18 @@ export default {
         },
 
         getItems() {
-            /*
-            if (this.isAdmin == true) {
-                this.getItemsAdmin()
+
+            if (this.alunoId === null) {
+                this.getItemsAdmin();
             } else {
-                */
-            this.getItemsStudent()
-            // }
+                this.getItemsStudent();
+            }
+
         },
 
         getItemsStudent() {
 
-            const aluno_id = localStorage.getItem('aluno_id')
-
-            axios.get(`${server}/index/aluno/${aluno_id}`, {
+            axios.get(`${server}/index/aluno/${this.alunoId}`, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             })
                 .then((response) => {
@@ -56,7 +54,10 @@ export default {
 
         getItemsAdmin() {
 
-            console.log(this.isAdmin);
+            let formData = new FormData()
+
+            formData.append('year', 2021)
+            formData.append('month', 4)
 
             axios.get(`${server}/index/admin`, {
                 headers: {
@@ -73,9 +74,11 @@ export default {
 
     mounted() {
 
-        this.isAdmin = this.$route.params.isAdmin;
+        this.alunoId = localStorage.getItem('aluno_id');
 
-        console.log(this.isAdmin);
+        if (this.alunoId === 'null') {
+            this.alunoId = null
+        }
 
         this.getItems();
 
@@ -98,11 +101,11 @@ export default {
                 </div>
             </div>
 
-            <h2 style="margin-left: 2em;">Olá, aluno!</h2>
+            <h2 style="margin-left: 2em;">Olá, {{ this.alunoId ? "aluno" : "administrador" }}!</h2>
         </div>
 
         <div class="list-container">
-            <div class="btn-container">
+            <div v-if="this.alunoId" class="btn-container">
                 <router-link style="text-decoration: none;" to="/formulario-redacao">
                     <div class="add-button">
                         <p>Adicionar Redação</p>
@@ -111,11 +114,19 @@ export default {
                 </router-link>
             </div>
 
-            <ul style="list-style-type: none;">
-                <li class="list-item" v-for="(essay, index) in essays" :key="index">
-                    <EssayItem @get-items="getItems" :essay="essay" />
-                </li>
-            </ul>
+            <div v-if="this.essays.length > 0">
+                <ul style="list-style-type: none;">
+                    <li class="list-item" v-for="(essay, index) in essays" :key="index">
+                        <EssayItem @get-items="getItems" :essay="essay" />
+                    </li>
+                </ul>
+            </div>
+
+            <div class="message-container" v-else >
+
+                <h3>Não há redações para exibir</h3>
+
+            </div>
         </div>
     </div>
 </template>
@@ -178,4 +189,10 @@ export default {
     display: inline;
     text-align: end;
 }
+
+.message-container {
+    margin: 4em;
+    text-align: center;
+}
+
 </style>

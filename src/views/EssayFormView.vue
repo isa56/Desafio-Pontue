@@ -58,6 +58,7 @@ export default {
             console.log("Update!")
 
             let formData = new FormData()
+            formData.append('urls[]', this.essayUrl)
             formData.append('file[]', this.file)
 
             axios.post(`${server}/redacao/${this.essayId}/update`, {

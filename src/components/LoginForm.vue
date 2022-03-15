@@ -14,13 +14,7 @@ export default {
     },
     methods: {
 
-        async login(event) {
-
-            let isAdmin = false;
-
-            if (this.email === "admin@pontue.com.br") {
-                isAdmin = true;
-            }
+        async login() {
 
             axios.post(`${server}/auth/login`, {
                 email: this.email,
@@ -32,7 +26,7 @@ export default {
 
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`
 
-                    this.$router.push({ name: 'redacoes', params: { isAdmin } })
+                    this.$router.push({ name: 'redacoes' })
 
                 })
                 .catch(erro => console.log(erro))
